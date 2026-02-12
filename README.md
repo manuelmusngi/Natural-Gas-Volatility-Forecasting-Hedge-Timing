@@ -41,6 +41,8 @@ A modular, notebook‑centric design that mirrors production analytics systems:
 - 🛠️ **Feature Engineering**  
   Realized volatility, curve shape metrics, storage surprises, and regime indicators
 
+[3. Feature engineering](https://github.com/manuelmusngi/Natural-Gas-Volatility-Forecasting-Hedge-Timing/blob/main/3.%20Feature%20engineering)
+
 - 📈 **Modeling & Forecasting**   
   Linear HAR‑style regressions and non‑linear machine learning models
 
