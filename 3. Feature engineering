@@ -9,3 +9,48 @@ Construct:
 - Weather anomalies
 
 Target: future realized volatility over a configurable horizon.
+
+#### Helpers
+def realized_vol(series: pd.Series, window: int) -> pd.Series:
+    rets = np.log(series).diff()
+    return rets.rolling(window).std() * np.sqrt(252)
+
+#### Build features
+def build_features(panel: pd.DataFrame, cfg: dict) -> pd.DataFrame:
+    df = panel.copy()
+
+    # Realized vol
+    df["rv_5d"] = realized_vol(df["spot"], 5)
+    df["rv_10d"] = realized_vol(df["spot"], 10)
+
+    # Target: future RV
+    horizon = cfg.get("target_horizon_days", 10)
+    df["target_rv_fwd"] = df["rv_10d"].shift(-horizon)
+
+    # Curve shape
+    if {"M1", "M3"}.issubset(df.columns):
+        df["m1_m3_slope"] = df["M3"] - df["M1"]
+    if {"M1", "M12"}.issubset(df.columns):
+        df["m1_m12_slope"] = df["M12"] - df["M1"]
+
+    # Storage surprise proxy
+    if "storage" in df.columns:
+        df["storage_change"] = df["storage"].diff(7)
+        df["storage_chg_5y_mean"] = df["storage_change"].rolling(5 * 52).mean()
+        df["storage_surprise"] = df["storage_change"] - df["storage_chg_5y_mean"]
+
+    # Fundamentals deltas
+    for col in ["prod", "demand", "lng_exports"]:
+        if col in df.columns:
+            df[f"{col}_chg_7d"] = df[col].diff(7)
+
+    # Weather anomalies
+    if "hdd" in df.columns:
+        df["hdd_anom"] = df["hdd"] - df["hdd"].rolling(10 * 365).mean()
+
+    df = df.dropna()
+    return df
+
+features = build_features(panel, feat_cfg)
+features.head()
+
