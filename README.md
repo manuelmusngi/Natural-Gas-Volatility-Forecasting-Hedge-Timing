@@ -31,22 +31,22 @@ A modular, notebook‑centric design that mirrors production analytics systems:
 
   - [0. Notebook metadata](https://github.com/manuelmusngi/Natural-Gas-Volatility-Forecasting-Hedge-Timing/blob/main/0.%20Notebook%20metadata)
 
-- **Data Ingestion** 📥  
-  Spot prices, futures curves, storage levels, fundamentals, and weather proxies
+- 📥 **Data Ingestion**  
+  futures prices, futures curves, storage levels, fundamentals, and weather proxies
 
-- **Feature Engineering** 🛠️  
+- 🛠️ **Feature Engineering**  
   Realized volatility, curve shape metrics, storage surprises, and regime indicators
 
-- **Modeling & Forecasting** 📈  
+- 📈 **Modeling & Forecasting**   
   Linear HAR‑style regressions and non‑linear machine learning models
 
-- **Volatility Regimes** 🔍  
+- 🔍 **Volatility Regimes**   
   Classification of low, medium, and high volatility environments
 
-- **Hedge Timing Logic** ⏱️  
+- ⏱️ **Hedge Timing Logic**   
   Translating forecasts into actionable hedge bias signals
 
-- **Risk Interpretation** ⚖️  
+- ⚖️ **Risk Interpretation**  
   Linking volatility forecasts to P&L dispersion and risk views
 
 
