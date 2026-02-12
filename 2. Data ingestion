@@ -1,0 +1,40 @@
+## 2. Data ingestion
+
+We load:
+
+- Daily spot prices and front‑month futures
+- Futures curve snapshots (e.g., M1–M12)
+- Weekly storage levels
+- Fundamentals (production, demand, LNG exports)
+- Weather proxies (HDD/CDD)
+
+All series are merged into a common daily panel.
+
+def load_prices() -> pd.DataFrame:
+    df = pd.read_csv(DATA_RAW / data_cfg["prices_file"], parse_dates=["date"])
+    df = df.sort_values("date")
+    return df.set_index("date")
+
+def load_futures_curve() -> pd.DataFrame:
+    df = pd.read_csv(DATA_RAW / data_cfg["futures_curve_file"], parse_dates=["date"])
+    return df.set_index("date").sort_index()
+
+def load_storage() -> pd.DataFrame:
+    df = pd.read_csv(DATA_RAW / data_cfg["storage_file"], parse_dates=["date"])
+    return df.sort_values("date").set_index("date")
+
+def load_fundamentals() -> pd.DataFrame:
+    df = pd.read_csv(DATA_RAW / data_cfg["fundamentals_file"], parse_dates=["date"])
+    return df.set_index("date").sort_index()
+
+def load_weather() -> pd.DataFrame:
+    df = pd.read_csv(DATA_RAW / data_cfg["weather_file"], parse_dates=["date"])
+    return df.set_index("date").sort_index()
+
+prices = load_prices()
+curve = load_futures_curve()
+storage = load_storage()
+funds = load_fundamentals()
+weather = load_weather()
+
+prices.head()
