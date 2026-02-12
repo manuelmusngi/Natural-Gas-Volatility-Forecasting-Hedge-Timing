@@ -56,8 +56,12 @@ A modular, notebook‑centric design that mirrors production analytics systems:
 - ⏱️ **Hedge Timing Logic**   
   Translating forecasts into actionable hedge bias signals
 
+  [5. Volatility regimes and hedge timing](https://github.com/manuelmusngi/Natural-Gas-Volatility-Forecasting-Hedge-Timing/blob/main/5.%20Volatility%20regimes%20and%20hedge%20timing)
+
 - ⚖️ **Risk Interpretation**  
   Linking volatility forecasts to P&L dispersion and risk views
+
+  [6. Risk view and simple P&L dispersion](https://github.com/manuelmusngi/Natural-Gas-Volatility-Forecasting-Hedge-Timing/blob/main/6.%20Risk%20view%20and%20simple%20P%26L%20dispersion)
 
 
 #### License
