@@ -71,5 +71,58 @@ A modular, notebook‑centric design that mirrors production analytics systems:
   [6. Risk view and simple P&L dispersion](https://github.com/manuelmusngi/Natural-Gas-Volatility-Forecasting-Hedge-Timing/blob/main/6.%20Risk%20view%20and%20simple%20P%26L%20dispersion)
 
 
+#### 📁 Project Structure
+ng-volatility-forecasting/\
+├── README.md\
+├── pyproject.toml\
+├── config/\
+│   ├── data_sources.yaml\
+│   ├── features.yaml\
+│   ├── models.yaml\
+│   └── backtest.yaml\
+├── data/\
+│   ├── raw/\
+│   ├── interim/\
+│   └── processed/\
+├── notebooks/\
+│   └── ng_volatility_pipeline.ipynb\
+├── scripts/\
+│   ├── download_data.py\
+│   ├── generate_synthetic_data.py\
+│   └── run_pipeline.py\
+├── src/\
+│   └── ng_vol/\
+│       ├── __init__.py\
+│       ├── config/\
+│       │   └── loader.py\
+│       ├── io/\
+│       │   ├── ingestion.py\
+│       │   └── validation.py\
+│       ├── preprocessing/\
+│       │   └── align.py\
+│       ├── features/\
+│       │   ├── volatility.py\
+│       │   ├── curve.py\
+│       │   ├── storage.py\
+│       │   └── weather.py\
+│       ├── models/\
+│       │   ├── base.py\
+│       │   ├── har.py\
+│       │   └── tree.py\
+│       ├── forecasting/\
+│       │   └── engine.py\
+│       ├── regimes/\
+│       │   └── classifier.py\
+│       ├── risk/\
+│       │   └── pnl_proxy.py\
+│       ├── reporting/\
+│       │   └── plots.py\
+│       └── pipeline.py\
+└── tests/\
+    ├── test_ingestion.py\
+    ├── test_features.py\
+    └── test_models.py\
+
+
 #### License
 This project is licensed under the [MIT License](https://github.com/manuelmusngi/regime_switching_models/edit/main/LICENSE).
