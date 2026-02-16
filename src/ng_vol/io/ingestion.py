@@ -1,3 +1,5 @@
+# Handles raw data loading only
+
 import pandas as pd
 from pathlib import Path
 
