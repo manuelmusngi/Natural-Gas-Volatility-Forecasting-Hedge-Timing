@@ -33,8 +33,6 @@ All analytics are orchestrated within a **single, fully documented Jupyter noteb
 #### 🚀 Key Takeaway
 This repository demonstrates how **academic volatility concepts** can be transformed into a **practical hedge‑timing and risk analytics tool** for natural gas markets—balancing rigor, interpretability, and operational relevance.
 
-*Built with reproducibility, modularity, and decision‑making impact in mind.*
-
 #### 🧩 Pipeline Notebook Architecture
 A modular, notebook‑centric design that mirrors production analytics systems:
 
